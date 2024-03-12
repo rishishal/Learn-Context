@@ -1,19 +1,16 @@
-import { useState } from 'react';
-
 import './App.css';
+import UserContextProvider from './context/UserContextProvider';
 import Login from './login';
-import UserName from './UserName';
-import UserContex from './Contex';
+import Profile from './Profile';
+
 
 function App() {
-  const [userName, setUserName] = useState('');
-
   return (
     <>
-      <UserContex.Provider value={{ loggedInUser: userName, setUserName }}>
+      <UserContextProvider>
         <Login />
-        <UserName />
-      </UserContex.Provider>
+        <Profile />
+      </UserContextProvider>
     </>
   );
 }
